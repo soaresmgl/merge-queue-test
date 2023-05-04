@@ -1,5 +1,8 @@
 name: ci-cd
 on:
+  merge_group:
+    branches:
+      - development
   pull_request:
     types:
       # on the below events, it will run pulumi preview
