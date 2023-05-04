@@ -69,4 +69,7 @@ jobs:
     needs: control
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Checked"
+      - name: Sleep for 30 seconds
+        run: sleep 30s
+        shell: bash
+      - run: echo "All passed"
