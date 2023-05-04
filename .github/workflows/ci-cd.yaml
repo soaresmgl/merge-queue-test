@@ -1,0 +1,69 @@
+name: ci-cd
+on:
+  pull_request:
+    types:
+      # on the below events, it will run pulumi preview
+      - synchronize # PR commits
+      - opened
+      # transition from draft to ready for review
+      - reopened
+      # this will run pulumi up when it's closed and merged
+      - closed
+    branches:
+      - development
+      - staging-pr
+      - main
+
+jobs:
+  control:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+  lint:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Linted"
+
+  test:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Tested"
+
+  validate-ssg-wrapper-config:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Validated"
+
+  nginx-config-generation:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checked"
+
+  infrastructure-provisioning:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checked"
+
+  ssg-wrapper-docker-build-and-push:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Pushed"
+
+  storybook-docker-build-and-push:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Pushed"
+
+  application-provisioning:
+    needs: control
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Checked"
