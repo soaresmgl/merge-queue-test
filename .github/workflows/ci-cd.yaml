@@ -74,10 +74,10 @@ jobs:
         shell: bash
       - run: echo "All passed"
 
-  released:
-    needs: application-provisioning
-    runs-on: ubuntu-latest
-    environment:
-      name: Release-Finished
-    steps:
-      - run: echo "Finished"
+  # released:
+  #   needs: application-provisioning
+  #   runs-on: ubuntu-latest
+  #   environment:
+  #     name: Release-Finished
+  #   steps:
+  #     - run: echo "Finished"
