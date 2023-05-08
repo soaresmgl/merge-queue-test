@@ -74,8 +74,8 @@ jobs:
         shell: bash
       - run: echo "All passed"
 
-  finished:
-    needs: control
+  released:
+    needs: application-provisioning
     runs-on: ubuntu-latest
     environment:
       name: Release-Finished
