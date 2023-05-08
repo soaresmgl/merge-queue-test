@@ -73,3 +73,11 @@ jobs:
         run: sleep 30s
         shell: bash
       - run: echo "All passed"
+
+  finished:
+    needs: control
+    runs-on: ubuntu-latest
+    environment:
+      name: Release-Finished
+    steps:
+      - run: echo "Finished"
